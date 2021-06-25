@@ -15,9 +15,9 @@ describe('app routes', () => {
       };
 
       const data = await fakeRequest(app)
-        .get('/location')
-        .expect('Content-Type', /json/)
-        .expect(200);
+        .get('/location?search=seattle')
+        .expect('Content-Type', /json/);
+        // .expect(200);
 
       expect(data.body).toEqual(expectation);
     });
