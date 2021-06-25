@@ -21,5 +21,20 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('returns weather data', async() => {
+
+      const expectation =   {
+        'forecast': 'Clear sky',
+        'time': 'Friday, June 25, 2021'
+    };
+
+      const data = await fakeRequest(app)
+        .get('/location?search=seattle')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
   });
 });

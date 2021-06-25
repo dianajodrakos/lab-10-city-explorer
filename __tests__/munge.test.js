@@ -1,10 +1,10 @@
-const { mungeLocationResponse } = require('../lib/munge.js');
+const { mungeLocationResponse, mungeWeatherResponse } = require('../lib/munge.js');
 
 require('dotenv').config();
 
 describe('munge function', () => {
 
-  test('takes in location data array and returns select data', async() => {
+  test('takes in location data array and returns select data in new object', async() => {
 
     const expectation =   {
       'formatted_query': 'Seattle, King County, Washington, USA',
@@ -197,6 +197,66 @@ describe('munge function', () => {
     ];
 
     const actual = mungeLocationResponse(input);
+
+    expect(actual).toEqual(expectation);
+  });
+
+  test('takes in weather data array and returns select data in new object', async() => {
+
+    const expectation =   {
+      'forecast': 'Clear sky',
+      'time': 'Friday, June 25, 2021'
+    };
+
+    const input = {
+      'data': [
+        {
+          'rh': 60,
+          'pod': 'd',
+          'lon': -122.33,
+          'pres': 1013.5,
+          'timezone': 'America/Los_Angeles',
+          'ob_time': '2021-06-25 16:32',
+          'country_code': 'US',
+          'clouds': 5,
+          'ts': 1624638760,
+          'solar_rad': 699.1,
+          'state_code': 'WA',
+          'city_name': 'Seattle',
+          'wind_spd': 3.09,
+          'wind_cdir_full': 'west',
+          'wind_cdir': 'W',
+          'slp': 1014.1,
+          'vis': 5,
+          'h_angle': -45,
+          'sunset': '04:11',
+          'dni': 846.74,
+          'dewpt': 13.7,
+          'snow': 0,
+          'uv': 7.46576,
+          'precip': 0,
+          'wind_dir': 280,
+          'sunrise': '12:12',
+          'ghi': 699.09,
+          'dhi': 107.5,
+          'aqi': 32,
+          'lat': 47.6,
+          'weather': {
+            'icon': 'c01d',
+            'code': 800,
+            'description': 'Clear sky'
+          },
+          'datetime': '2021-06-25:16',
+          'temp': 21.7,
+          'station': '2139P',
+          'elev_angle': 44.97,
+          'app_temp': 21.5
+        }
+      ],
+      'count': 1
+    };
+
+    const actual = mungeWeatherResponse(input);
 
     expect(actual).toEqual(expectation);
   });
