@@ -5,7 +5,6 @@ require('dotenv').config();
 describe('munge function', () => {
 
   test('takes in location data array and returns select data in new object', async() => {
-
     const expectation =   {
       'formatted_query': 'Seattle, King County, Washington, USA',
       'latitude': '47.6038321',
@@ -202,7 +201,6 @@ describe('munge function', () => {
   });
 
   test('takes in weather data array and returns select data in new object', async() => {
-
     const expectation =   {
       'forecast': 'Clear sky',
       'time': 'Friday, June 25, 2021'
