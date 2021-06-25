@@ -23,10 +23,71 @@ describe('app routes', () => {
 
 
     test('returns weather data', async() => {
-      const expectation =   {
-        'forecast': 'Clear sky',
-        'time': 'Friday, June 25, 2021'
-      };
+      const expectation =   [
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {
+          'forecast': expect.any(String),
+          'time': expect.any(String)
+        },
+        {    'forecast': expect.any(String),
+          'time': expect.any(String)
+        }
+      ];
 
       const data = await fakeRequest(app)
         .get('/weather?latitude=47.6038321&longitude=-122.3300624')
